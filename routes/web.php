@@ -16,7 +16,7 @@ use App\Http\Controllers\OrderItemsController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 //product routes
