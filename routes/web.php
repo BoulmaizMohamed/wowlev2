@@ -15,31 +15,29 @@ use App\Http\Controllers\OrderItemsController;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', function () {return view('home');})->name('home');
 
 //product routes
-Route::get('/products', [ProductController::class, 'index']);
-Route::get('/products/create', [ProductController::class, 'create']);
-Route::post('/products', [ProductController::class, 'store']);
-Route::get('/products/{product}/edit', [ProductController::class, 'edit']);
-Route::put('/products/{product}', [ProductController::class, 'update']);
-Route::delete('/products/{product}', [ProductController::class, 'destroy']);
+Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
+Route::post('/products', [ProductController::class, 'store'])->name('products.store');
+Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
+Route::put('/products/{product}', [ProductController::class, 'update'])->name('products.update');
+Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
 
 //order routes
-Route::get('/orders', [OrderController::class, 'index']);
-Route::get('/orders/create', [OrderController::class, 'create']);
-Route::post('/orders', [OrderController::class, 'store']);
-Route::get('/orders/{order}', [OrderController::class, 'show']);
+Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
+Route::get('/orders/create', [OrderController::class, 'create'])->name('orders.create');
+Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
+Route::get('/orders/{order}', [OrderController::class, 'show'])->name('orders.show');
 
 //OrderItems
-Route::get('/orders/{order}/items', [OrderItemsController::class, 'index']);
-Route::get('/orders/{order}/items/create', [OrderItemsController::class, 'create']);
-Route::post('/orders/{order}/items', [OrderItemsController::class, 'store']);
+Route::get('/orders/{order}/items', [OrderItemsController::class, 'index'])->name('orders.items.index');
+Route::get('/orders/{order}/items/create', [OrderItemsController::class, 'create'])->name('orders.items.create');
+Route::post('/orders/{order}/items', [OrderItemsController::class, 'store'])->name('orders.items.store');
 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home2');
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home2');
